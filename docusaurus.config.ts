@@ -5,8 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'My Documentation',
+  tagline: 'Image processing is cool',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -15,15 +15,15 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://github.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'Zeinab-Razmi', // Usually your GitHub org/user name.
+  projectName: 'my-documentation', // Usually your repo name.
 
   onBrokenLinks: 'throw',
 
@@ -35,31 +35,19 @@ const config: Config = {
     locales: ['en'],
   },
 
+  themes: ['@cmfcmf/docusaurus-search-local', '@docusaurus/theme-mermaid'],
+  // In order for Mermaid code blocks in Markdown to work,
+  // you also need to enable the Remark plugin with this option
+  markdown: {
+    mermaid: true,
+  },
+
   presets: [
     [
       'classic',
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -75,70 +63,58 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'My Site',
+      title: 'My Documentation',
       logo: {
         alt: 'My Site Logo',
         src: 'img/logo.svg',
       },
       items: [
-        {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Tutorial',
-        },
-        {to: '/blog', label: 'Blog', position: 'left'},
-        {
-          href: 'https://github.com/facebook/docusaurus',
+          {
+            type: "dropdown",
+            label: "Advanced concepts",
+            position: "left",
+            items: [
+                {type: "doc", docId: "advanced-concept-1/introduction", label: "Advanced concept 1"},
+                {type: "doc", docId: "advanced-concept-2/introduction", label: "Advanced concept 2"},
+            ]
+          },
+          {
+            type: "dropdown",
+            label: "Basic concepts",
+            position: "left",
+            items: [
+                {type: "doc", docId: "basic-concept-1/introduction", label: "Basic concept 1"},
+                {type: "doc", docId: "basic-concept-2/introduction", label: "Basic concept 2"},
+            ]
+          },
+          {
+            type: "dropdown",
+            label: "Projects",
+            position: "left",
+            items: [
+                {type: "doc", docId: "project-1/introduction", label: "Project 1"},
+                {type: "doc", docId: "project-2/introduction", label: "Project 2"},
+            ]
+          },
+          {
+            type: "dropdown",
+            label: "Technologies",
+            position: "left",
+            items: [
+                {type: "doc", docId: "technology-1/introduction", label: "Technology 1"},
+                {type: "doc", docId: "technology-2/introduction", label: "Technology 2"},
+            ]
+          },
+          {
+            type: "search",
+            position: "right"
+          },
+          {
+          href: 'https://github.com/Zeinab-Razmi/my-documentation',
           label: 'GitHub',
           position: 'right',
-        },
+          },
       ],
-    },
-    footer: {
-      style: 'dark',
-      links: [
-        {
-          title: 'Docs',
-          items: [
-            {
-              label: 'Tutorial',
-              to: '/docs/intro',
-            },
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
-            },
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
