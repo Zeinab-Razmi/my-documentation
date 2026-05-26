@@ -74,8 +74,8 @@ const config: Config = {
             label: "Advanced concepts",
             position: "left",
             items: [
-                {type: "doc", docId: "advanced-concept-1/introduction", label: "Advanced concept 1"},
-                {type: "doc", docId: "advanced-concept-2/introduction", label: "Advanced concept 2"},
+                {type: "doc", docId: "object-detection/introduction", label: "Object Detection"},
+                {type: "doc", docId: "image-processing/introduction", label: "Image Processing"},
             ]
           },
           {
